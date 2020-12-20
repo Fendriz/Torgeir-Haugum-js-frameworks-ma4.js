@@ -40,7 +40,7 @@ function RecipeItem({ id, name, image, ingredients }) {
                         aria-label='recipe'
                         style={{ backgroundImage: "url(" + image + ")" }}
                     >
-                        <b className={classes.recipe}>R {id}</b>
+                        <b className={classes.recipe}>R {id +1}</b>
                     </Avatar>
                 }
                 titleTypographyProps={{variant:'h5' }}
