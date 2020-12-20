@@ -4,8 +4,21 @@ import RecipeItem from "./RecipeItem";
 import Search from "./SearchRecipe";
 import Box from "@material-ui/core/Box";
 import _ from "lodash";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    progress: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+    
+  },
+});
 
 function RecipeList() {
+    const classes = useStyles();
+
     const [recipeObj, setRecipeObj] = useState([]);
     const [recipe, setRecipe] = useState([]);
     const ref = useRef(null);
@@ -54,7 +67,7 @@ function RecipeList() {
     }
 
     if (loading) {
-        return <CircularProgress />;
+        return <CircularProgress className={classes.progress}/>;
     }
     if (!loading && !_.isEmpty(recipeObj)) {
         createRecipe();
